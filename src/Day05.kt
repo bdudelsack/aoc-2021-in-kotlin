@@ -19,7 +19,7 @@ data class Line(val start: Point, val end: Point) {
     }
 }
 
-data class Map(val width: Int, val height: Int) {
+data class VentsMap(val width: Int, val height: Int) {
     private val canvas = MutableList(width) { MutableList(height) { 0 } }
 
     fun drawLine(line: Line) {
@@ -68,7 +68,7 @@ fun main() {
         val maxX = lines.maxOf { maxOf(it.start.x, it.end.x) }
         val maxY = lines.maxOf { maxOf(it.start.y, it.end.y) }
 
-        val map = Map(maxX + 1, maxY + 1)
+        val map = VentsMap(maxX + 1, maxY + 1)
         for (line in lines) {
             map.drawLine(line)
         }
